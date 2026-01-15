@@ -192,6 +192,27 @@
                         background: var(--primary);
                         color: #fff
                 }
+
+                .stars {
+                        display: flex;
+                        gap: 6px;
+                }
+
+                .star {
+                        font-size: 32px;
+                        color: #cbd5e1;
+                        cursor: pointer;
+                        transition: transform .12s, color .12s;
+                }
+
+                .star.active {
+                        color: #f59e0b;
+                }
+
+                /* gold */
+                .star:hover {
+                        transform: scale(1.1);
+                }
         </style>
 </head>
 
@@ -199,7 +220,7 @@
         <div class="container">
                 <header class="header">
                         <h1>Asha Kiran Hospital</h1>
-                        <p>Quick survey. Just tap to move forward. Takes about 2–3 minutes.</p>
+                        <p>Out Patient Feedback Form</p>
                         <div class="progress" aria-label="Progress">
                                 <div id="progressBar" class="progress-bar"></div>
                         </div>
@@ -390,13 +411,15 @@
                 <!-- Q13 (stars) -->
                 <section class="page" id="q13">
                         <h2>⭐ How would you rate your overall experience?</h2>
-                        <div class="options">
+                        <!-- <div class="options">
                                 <div class="option" onclick="answerAndNext(13,'1')">★☆☆☆☆</div>
                                 <div class="option" onclick="answerAndNext(13,'2')">★★☆☆☆</div>
                                 <div class="option" onclick="answerAndNext(13,'3')">★★★☆☆</div>
                                 <div class="option" onclick="answerAndNext(13,'4')">★★★★☆</div>
                                 <div class="option" onclick="answerAndNext(13,'5')">★★★★★</div>
-                        </div>
+                        </div> -->
+                        <div id="starRating" class="stars"></div>
+                        <p id="starValue"></p>
                 </section>
 
                 <!-- Q14 -->
@@ -653,6 +676,34 @@
 
                 // Initialize first page
                 showPage("q1");
+
+                //stars
+                function buildStars(qId) {
+                        const wrap = document.getElementById("starRating");
+                        wrap.innerHTML = "";
+                        for (let i = 1; i <= 5; i++) {
+                                const s = document.createElement("span");
+                                s.className = "star"; s.textContent = "★";
+                                s.addEventListener("click", () => {
+                                        // highlight stars immediately
+                                        wrap.querySelectorAll(".star").forEach((st, idx) => st.classList.toggle("active", idx < i));
+                                        document.getElementById("starValue").textContent = "Selected: " + i;
+
+                                        // record answer
+                                        responses["Q" + qId] = i;
+
+                                        // wait 2–3 seconds, then move to next page
+                                        setTimeout(() => {
+                                                // goNext();
+                                                answerAndNext(qId, i);
+                                        }, 2500); // 2500ms = 2.5 seconds
+                                });
+                                wrap.appendChild(s);
+                        }
+                }
+
+                // build stars for Q13
+                buildStars(13);
         </script>
 </body>
 
