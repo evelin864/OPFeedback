@@ -217,6 +217,9 @@
 </head>
 
 <body>
+        <form style="display: none;" id="opForm" method="post" action="https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec">
+                <input type="hidden" name="data" id="dataField">
+        </form>
         <div class="container">
                 <header class="header">
                         <h1>Asha Kiran Hospital</h1>
@@ -754,20 +757,22 @@
                 // }
 
                 function submitSurvey() {
-                        fetch("https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec", {
-                                method: "POST",
-                                body: new URLSearchParams({
-                                        data:JSON.stringify(responses)
-                                })
-                                //body: JSON.stringify(responses),
-                                //headers: { "Content-Type": "application/json" }
-                        })
-                                .then(res => res.text())
-                                .then(text => {
-                                        console.log("Server response:", text);
-                                        showPage("qFinal");
-                                })
-                                .catch(err => alert("Error submitting: " + err));
+                        // fetch("https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec", {
+                        //         method: "POST",
+                        //         body: new URLSearchParams({
+                        //                 data:JSON.stringify(responses)
+                        //         })
+                        //         //body: JSON.stringify(responses),
+                        //         //headers: { "Content-Type": "application/json" }
+                        // })
+                        //         .then(res => res.text())
+                        //         .then(text => {
+                        //                 console.log("Server response:", text);
+                        //                 showPage("qFinal");
+                        //         })
+                        //         .catch(err => alert("Error submitting: " + err));
+                        document.querySelector("#dataField").value =- JSON.stringify(responses);
+                        document.querySelector("opForm").submit();
                 }
         </script>
 </body>
