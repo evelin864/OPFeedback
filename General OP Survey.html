@@ -756,8 +756,11 @@
                 function submitSurvey() {
                         fetch("https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec", {
                                 method: "POST",
-                                body: JSON.stringify(responses),
-                                headers: { "Content-Type": "application/json" }
+                                body: new URLSearchParams({
+                                        data:JSON.stringify(responses)
+                                })
+                                //body: JSON.stringify(responses),
+                                //headers: { "Content-Type": "application/json" }
                         })
                                 .then(res => res.text())
                                 .then(text => {
