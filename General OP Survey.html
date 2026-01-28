@@ -217,7 +217,8 @@
 </head>
 
 <body>
-        <form style="display: none;" id="opForm" method="post" action="https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec">
+        <form style="display: none;" id="opForm" method="post"
+                action="https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec">
                 <input type="hidden" name="data" id="dataField">
         </form>
         <div class="container">
@@ -771,8 +772,13 @@
                         //                 showPage("qFinal");
                         //         })
                         //         .catch(err => alert("Error submitting: " + err));
-                        document.querySelector("#dataField").value =- JSON.stringify(responses);
-                        document.querySelector("#opForm").submit();
+                        // document.querySelector("#dataField").value = - JSON.stringify(responses);
+                        // document.querySelector("#opForm").submit();
+                        const url = "https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec"
+                                + "?data=" + encodeURIComponent(JSON.stringify(responses));
+
+                        const img = new Image();
+                        img.src = url;
                 }
         </script>
 </body>
