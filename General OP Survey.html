@@ -275,136 +275,136 @@
 
                 <!-- Q2 -->
                 <section class="page" id="q2">
-                        <h2 data-i18n="q2">💊 Did you have any medical treatment for this illness before
-                                visiting AKH?
+                        <h2>💊 <span data-i18n="q2">Did you have any medical treatment for this illness before
+                                visiting AKH?</span>
                         </h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(2,'Yes')"><span
-                                                class="emoji">✅</span>Yes
+                                <div class="option" onclick="answerAndNext(2,'Yes')"><span
+                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(2,'No')"><span
-                                                class="emoji">❌</span>No</div>
+                                <div class="option" onclick="answerAndNext(2,'No')"><span
+                                                class="emoji">❌</span><span data-i18n="no">No</span></div>
                         </div>
                 </section>
 
                 <!-- Q3 (conditional: only if Q2 = Yes) -->
                 <section class="page" id="q3">
-                        <h2 data-i18n="q3">🏥 If yes, where did you receive treatment?</h2>
+                        <h2>🏥 <span data-i18n="q3">If yes, where did you receive treatment?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q3o1" onclick="answerAndNext(3,'Govt. Hospital')"><span
-                                                class="emoji">🏛️</span>Govt. Hospital</div>
-                                <div class="option" data-i18n="q3o2" onclick="answerAndNext(3,'Private Hospital')"><span
-                                                class="emoji">🏩</span>Private Hospital</div>
-                                <div class="option" data-i18n="qother" onclick="setOtherText(3,'Other')"><span
-                                                class="emoji">✍️</span>Other
-                                        (specify)</div>
+                                <div class="option" onclick="answerAndNext(3,'Govt. Hospital')"><span
+                                                class="emoji">🏛️</span><span data-i18n="q3o1">Govt. Hospital</span></div>
+                                <div class="option" onclick="answerAndNext(3,'Private Hospital')"><span
+                                                class="emoji">🏩</span><span data-i18n="q3o2">Private Hospital</span></div>
+                                <div class="option" onclick="setOtherText(3,'Other')"><span
+                                                class="emoji">✍️</span><span data-i18n="qother">Other
+                                        (specify)</span></div>
                         </div>
                         <div class="actions" id="other3" style="display:none;">
                                 <input id="other3Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary" data-i18n="continue"
-                                        onclick="submitOther(3,'Other')">Continue</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitOther(3,'Other')"><span data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
                 <!-- Q4 -->
                 <section class="page" id="q4">
-                        <h2 data-i18n="q4">📣 How did you hear about AKH?</h2>
+                        <h2>📣 <span data-i18n="q4">How did you hear about AKH?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q4o1"
+                                <div class="option"
                                         onclick="answerAndNext(4,'Family/Friend/Previous Patient')"
                                         ><span
-                                                class="emoji">👨‍👩‍👧‍👦</span>Family / Friend / Previous
-                                        Patient</div>
-                                <div class="option" data-i18n="q4o2" onclick="answerAndNext(4,'CHW/Pastor referral')">
-                                        <span class="emoji">⛪</span>Referral from CHW / Pastor
+                                                class="emoji">👨‍👩‍👧‍👦</span><span data-i18n="q4o1">Family / Friend / Previous
+                                        Patient</span></div>
+                                <div class="option" onclick="answerAndNext(4,'CHW/Pastor referral')">
+                                        <span class="emoji">⛪</span><span data-i18n="q4o2">Referral from CHW / Pastor</span>
                                 </div>
-                                <div class="option" data-i18n="q4o3"
+                                <div class="option"
                                         onclick="answerAndNext(4,'ASHA/Govt Officer referral')"><span
-                                                class="emoji">🏢</span>Referral from ASHA / Govt. Officer</div>
-                                <div class="option" data-i18n="q4o4" onclick="answerAndNext(4,'Market camp')">
-                                        <span class="emoji">🛍️</span>Heard through a market camp
+                                                class="emoji">🏢</span><span data-i18n="q4o3">Referral from ASHA / Govt. Officer</span></div>
+                                <div class="option" onclick="answerAndNext(4,'Market camp')">
+                                        <span class="emoji">🛍️</span><span data-i18n="q4o4">Heard through a market camp</span>
                                 </div>
-                                <div class="option" data-i18n="q4o5"
+                                <div class="option"
                                         onclick="answerAndNext(4,'Another Hospital referral')"><span
-                                                class="emoji">🏥</span>Referral from another Hospital</div>
+                                                class="emoji">🏥</span><span data-i18n="q4o5">Referral from another Hospital</span></div>
                         </div>
                 </section>
 
                 <!-- Q5 -->
                 <section class="page" id="q5">
-                        <h2 data-i18n="q5">🚗 How did you travel to the hospital?</h2>
+                        <h2>🚗 <span data-i18n="q5">How did you travel to the hospital?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q5o1" onclick="answerAndNext(5,'Walked')"><span
-                                                class="emoji">🚶</span>Walked</div>
-                                <div class="option" data-i18n="q5o2" onclick="answerAndNext(5,'Public Vehicle')"><span
-                                                class="emoji">🚌</span>Public Vehicle</div>
-                                <div class="option" data-i18n="q5o3" onclick="answerAndNext(5,'Private Vehicle')"><span
-                                                class="emoji">🚗</span>Private Vehicle</div>
-                                <div class="option" data-i18n="qother" onclick="setOtherText(5,'Other')"><span
-                                                class="emoji">✍️</span>Other
-                                        (specify)</div>
+                                <div class="option" onclick="answerAndNext(5,'Walked')"><span
+                                                class="emoji">🚶</span><span data-i18n="q5o1">Walked</span></div>
+                                <div class="option" onclick="answerAndNext(5,'Public Vehicle')"><span
+                                                class="emoji">🚌</span><span data-i18n="q5o2">Public Vehicle</span></div>
+                                <div class="option" onclick="answerAndNext(5,'Private Vehicle')"><span
+                                                class="emoji">🚗</span><span data-i18n="q5o3">Private Vehicle</span></div>
+                                <div class="option" onclick="setOtherText(5,'Other')"><span
+                                                class="emoji">✍️</span><span data-i18n="qother">Other
+                                        (specify)</span></div>
                         </div>
                         <div class="actions" id="other5" style="display:none;">
                                 <input id="other5Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary" data-i18n="continue"
-                                        onclick="submitOther(5,'Other')">Continue</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitOther(5,'Other')"><span data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
                 <!-- Q6 (conditional: only if Q5 = Private Vehicle) -->
                 <section class="page" id="q6">
-                        <h2 data-i18n="q6">🅿️ If private vehicle, was parking a problem?</h2>
+                        <h2>🅿️ <span data-i18n="q6">If private vehicle, was parking a problem?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(6,'Yes')"><span
-                                                class="emoji">⚠️</span>Yes
+                                <div class="option" onclick="answerAndNext(6,'Yes')"><span
+                                                class="emoji">⚠️</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(6,'No')"><span
-                                                class="emoji">✅</span>No</div>
+                                <div class="option" onclick="answerAndNext(6,'No')"><span
+                                                class="emoji">✅</span><span data-i18n="no">No</span></div>
                         </div>
                 </section>
 
                 <!-- Q7 -->
                 <section class="page" id="q7">
-                        <h2 data-i18n="q7">🧭 Did you have difficulty finding your way around the hospital?</h2>
+                        <h2>🧭 <span data-i18n="q7">Did you have difficulty finding your way around the hospital?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(7,'Yes')"><span
-                                                class="emoji">🧩</span>Yes
+                                <div class="option" onclick="answerAndNext(7,'Yes')"><span
+                                                class="emoji">🧩</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(7,'No')"><span
-                                                class="emoji">🗺️</span>No
+                                <div class="option" onclick="answerAndNext(7,'No')"><span
+                                                class="emoji">🗺️</span><span data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q8 -->
                 <section class="page" id="q8">
-                        <h2 data-i18n="q8">🧼 Was the hospital (including toilets) clean?</h2>
+                        <h2>🧼 <span data-i18n="q8">Was the hospital (including toilets) clean?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(8,'Yes')"><span
-                                                class="emoji">✨</span>Yes
+                                <div class="option" onclick="answerAndNext(8,'Yes')"><span
+                                                class="emoji">✨</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(8,'No')"><span
-                                                class="emoji">🚫</span>No
+                                <div class="option" onclick="answerAndNext(8,'No')"><span
+                                                class="emoji">🚫</span><span data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q9 (conditional: only if Q8 = No) -->
                 <section class="page" id="q9">
-                        <h2 data-i18n="q9">🧹 If no, which part?</h2>
+                        <h2>🧹 <span data-i18n="q9">If no, which part?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q9o1" onclick="answerAndNext(9,'Toilets')"><span
-                                                class="emoji">🚻</span>Toilets</div>
-                                <div class="option" data-i18n="q9o2" onclick="answerAndNext(9,'Wards')"><span
-                                                class="emoji">🛏️</span>Wards</div>
-                                <div class="option" data-i18n="qother" onclick="setOtherText(9,'Other')"><span
-                                                class="emoji">✍️</span>Other
-                                        (specify)</div>
+                                <div class="option" onclick="answerAndNext(9,'Toilets')"><span
+                                                class="emoji">🚻</span><span data-i18n="q9o1">Toilets</span></div>
+                                <div class="option" onclick="answerAndNext(9,'Wards')"><span
+                                                class="emoji">🛏️</span><span data-i18n="q9o2">Wards</span></div>
+                                <div class="option" onclick="setOtherText(9,'Other')"><span
+                                                class="emoji">✍️</span><span data-i18n="qother">Other
+                                        (specify)</span></div>
                         </div>
                         <div class="actions" id="other9" style="display:none;">
                                 <input id="other9Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary" data-i18n="continue"
-                                        onclick="submitOther(9,'Other')">Continue</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitOther(9,'Other')"><span data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
@@ -444,30 +444,30 @@
 
                 <!-- Q11 -->
                 <section class="page" id="q11">
-                        <h2 data-i18n="q11">💰 Was the cost of treatment expected or unexpected?</h2>
+                        <h2>💰 <span data-i18n="q11">Was the cost of treatment expected or unexpected?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q11o1" onclick="answerAndNext(11,'Expected')">
-                                        <span class="emoji">✅</span>Expected
+                                <div class="option" onclick="answerAndNext(11,'Expected')">
+                                        <span class="emoji">✅</span><span data-i18n="q11o1">Expected</span>
                                 </div>
-                                <div class="option" data-i18n="q11o2" onclick="answerAndNext(11,'Unexpected')">
-                                        <span class="emoji">⚠️</span>Unexpected
+                                <div class="option" onclick="answerAndNext(11,'Unexpected')">
+                                        <span class="emoji">⚠️</span><span data-i18n="q11o2">Unexpected</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q12 (open text) -->
                 <section class="page" id="q12">
-                        <h2 data-i18n="q12">💬 How?</h2>
+                        <h2>💬 <span data-i18n="q12">How?</span></h2>
                         <input id="q12Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="next"
-                                        onclick="submitText(12,'q12Input')">Next</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(12,'q12Input')"><span data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
                 <!-- Q13 (stars) -->
                 <section class="page" id="q13">
-                        <h2 data-i18n="q13">⭐ How would you rate your overall experience?</h2>
+                        <h2>⭐ <span data-i18n="q13">How would you rate your overall experience?</span></h2>
                         <!-- <div class="options">
                                 <div class="option" onclick="answerAndNext(13,'1')">★☆☆☆☆</div>
                                 <div class="option" onclick="answerAndNext(13,'2')">★★☆☆☆</div>
@@ -481,158 +481,158 @@
 
                 <!-- Q14 -->
                 <section class="page" id="q14">
-                        <h2 data-i18n="q14">🔄 Would you visit this hospital again?</h2>
+                        <h2>🔄 <span data-i18n="q14">Would you visit this hospital again?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(14,'Yes')"><span
-                                                class="emoji">✅</span>Yes
+                                <div class="option" onclick="answerAndNext(14,'Yes')"><span
+                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(14,'No')"><span
-                                                class="emoji">❌</span>No
+                                <div class="option" onclick="answerAndNext(14,'No')"><span
+                                                class="emoji">❌</span><span data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q15 (open text) -->
                 <section class="page" id="q15">
-                        <h2 data-i18n="q15">📝 Why?</h2>
+                        <h2>📝 <span data-i18n="q15">Why?</span></h2>
                         <input id="q15Input" class="input" type="text" placeholder="Your reason">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="next"
-                                        onclick="submitText(15,'q15Input')">Next</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(15,'q15Input')"><span data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
                 <!-- Q16 -->
                 <section class="page" id="q16">
-                        <h2 data-i18n="q16">🎂 Your age?</h2>
+                        <h2>🎂 <span data-i18n="q16">Your age?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q16o1" onclick="answerAndNext(16,'15-30')">15–30
-                                        yrs
+                                <div class="option" onclick="answerAndNext(16,'15-30')"><span data-i18n="q16o1">15–30
+                                        yrs</span>
                                 </div>
-                                <div class="option" data-i18n="q16o2" onclick="answerAndNext(16,'30-45')">30–45
-                                        yrs
+                                <div class="option" onclick="answerAndNext(16,'30-45')"><span data-i18n="q16o2">30–45
+                                        yrs</span>
                                 </div>
-                                <div class="option" data-i18n="q16o3" onclick="answerAndNext(16,'45-60')">45–60
-                                        yrs
+                                <div class="option" onclick="answerAndNext(16,'45-60')"><span data-i18n="q16o3">45–60
+                                        yrs</span>
                                 </div>
-                                <div class="option" data-i18n="q16o4" onclick="answerAndNext(16,'Above 60')">
-                                        Above 60
+                                <div class="option" onclick="answerAndNext(16,'Above 60')">
+                                        <span data-i18n="q16o4">Above 60</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q17 -->
                 <section class="page" id="q17">
-                        <h2 data-i18n="q17">🎓 Your education status?</h2>
+                        <h2>🎓 <span data-i18n="q17">Your education status?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q17o1" onclick="answerAndNext(17,'No Schooling')">No
-                                        Schooling</div>
-                                <div class="option" data-i18n="q17o2" onclick="answerAndNext(17,'1st-5th Std')">
-                                        1st–5th
-                                        Std</div>
-                                <div class="option" data-i18n="q17o3" onclick="answerAndNext(17,'6th-10th Std')">
-                                        6th–10th Std</div>
-                                <div class="option" data-i18n="q17o4" onclick="answerAndNext(17,'+2 Passed')">+2
-                                        Passed
+                                <div class="option" onclick="answerAndNext(17,'No Schooling')"><span data-i18n="q17o1">No
+                                        Schooling</span></div>
+                                <div class="option" onclick="answerAndNext(17,'1st-5th Std')">
+                                        <span data-i18n="q17o2">1st–5th
+                                        Std</span></div>
+                                <div class="option" onclick="answerAndNext(17,'6th-10th Std')">
+                                        <span data-i18n="q17o3">6th–10th Std</span></div>
+                                <div class="option" onclick="answerAndNext(17,'+2 Passed')"><span data-i18n="q17o4">+2
+                                        Passed</span>
                                 </div>
-                                <div class="option" data-i18n="q17o5" onclick="answerAndNext(17,'College graduate')">
-                                        College graduate
+                                <div class="option" onclick="answerAndNext(17,'College graduate')">
+                                        <span data-i18n="q17o5">College graduate</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q18 -->
                 <section class="page" id="q18">
-                        <h2 data-i18n="q18">💼 Your job?</h2>
+                        <h2>💼 <span data-i18n="q18">Your job?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q18o1" onclick="answerAndNext(18,'Farmer')">
-                                        Farmer</div>
-                                <div class="option" data-i18n="q18o2" onclick="answerAndNext(18,'Govt. Employee')">Govt.
-                                        Employee</div>
-                                <div class="option" data-i18n="q18o3" onclick="answerAndNext(18,'Salaried Employee')">
-                                        Salaried Employee
+                                <div class="option" onclick="answerAndNext(18,'Farmer')">
+                                        <span data-i18n="q18o1">Farmer</span></div>
+                                <div class="option" onclick="answerAndNext(18,'Govt. Employee')"><span data-i18n="q18o2">Govt.
+                                        Employee</span></div>
+                                <div class="option" onclick="answerAndNext(18,'Salaried Employee')">
+                                        <span data-i18n="q18o3">Salaried Employee</span>
                                 </div>
-                                <div class="option" data-i18n="qother" onclick="setOtherText(18,'Other')"><span
-                                                class="emoji">✍️</span>Other (specify)</div>
+                                <div class="option" onclick="setOtherText(18,'Other')"><span
+                                                class="emoji">✍️</span><span data-i18n="qother">Other (specify)</span></div>
                         </div>
                         <div class="actions" id="other18" style="display:none;">
                                 <input id="other18Input" class="input" type="text"
                                         placeholder="Type other and continue">
-                                <button class="btn btn-primary" data-i18n="continue"
-                                        onclick="submitOther(18,'Other')">Continue</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitOther(18,'Other')"><span data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
                 <!-- Q19 (open text) -->
                 <section class="page" id="q19">
-                        <h2 data-i18n="q19">🛠️ Suggestion to improve services</h2>
+                        <h2>🛠️ <span data-i18n="q19">Suggestion to improve services</span></h2>
                         <input id="q19Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="next"
-                                        onclick="submitText(19,'q19Input')">Next</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(19,'q19Input')"><span data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
                 <!-- Q20 (open text) -->
                 <section class="page" id="q20">
-                        <h2 data-i18n="q20">🏗️ Suggestion to improve facilities</h2>
+                        <h2>🏗️ <span data-i18n="q20">Suggestion to improve facilities</span></h2>
                         <input id="q20Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="next"
-                                        onclick="submitText(20,'q20Input')">Next</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(20,'q20Input')"><span data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
                 <!-- Q21 -->
                 <section class="page" id="q21">
-                        <h2 data-i18n="q21">🟩 Have you heard anything positive about AKH?</h2>
+                        <h2>🟩 <span data-i18n="q21">Have you heard anything positive about AKH?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(21,'Yes')"><span
-                                                class="emoji">✅</span>Yes
+                                <div class="option" onclick="answerAndNext(21,'Yes')"><span
+                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(21,'No')"><span
-                                                class="emoji">❌</span>No
+                                <div class="option" onclick="answerAndNext(21,'No')"><span
+                                                class="emoji">❌</span><span data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q22 (open text, conditional if Q21 Yes) -->
                 <section class="page" id="q22">
-                        <h2 data-i18n="q22">✨ What positive things have you heard?</h2>
+                        <h2>✨ <span data-i18n="q22">What positive things have you heard?</span></h2>
                         <input id="q22Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="next"
-                                        onclick="submitText(22,'q22Input')">Next</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(22,'q22Input')"><span data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
                 <!-- Q23 -->
                 <section class="page" id="q23">
-                        <h2 data-i18n="q23">🟥 Have you heard anything negative about AKH?</h2>
+                        <h2>🟥 <span data-i18n="q23">Have you heard anything negative about AKH?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="yes" onclick="answerAndNext(23,'Yes')"><span
-                                                class="emoji">⚠️</span>Yes
+                                <div class="option" onclick="answerAndNext(23,'Yes')"><span
+                                                class="emoji">⚠️</span><span data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" data-i18n="no" onclick="answerAndNext(23,'No')"><span
-                                                class="emoji">✅</span>No
+                                <div class="option" onclick="answerAndNext(23,'No')"><span
+                                                class="emoji">✅</span><span data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
 
                 <!-- Q24 (open text, conditional if Q23 Yes) -->
                 <section class="page" id="q24">
-                        <h2 data-i18n="q24">🗣️ What negative things have you heard?</h2>
+                        <h2>🗣️ <span data-i18n="q24">What negative things have you heard?</span></h2>
                         <input id="q24Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary" data-i18n="finish"
-                                        onclick="submitText(24,'q24Input')">Finish</button>
+                                <button class="btn btn-primary"
+                                        onclick="submitText(24,'q24Input')"><span data-i18n="finish">Finish</span></button>
                         </div>
                 </section>
 
                 <!-- Final -->
                 <section class="page" id="qFinal">
-                        <h2 data-i18n="thankyou">🎉 Thank you!</h2>
-                        <p data-i18n="recorded">Your feedback has been recorded. We value your experience at AKH
+                        <h2>🎉 <span data-i18n="thankyou">Thank you!</span></h2>
+                        <p><span data-i18n="recorded">Your feedback has been recorded. We value your experience at AKH</span>
                         </p>
                         <!-- <div class="actions">
                                 <button class="btn btn-secondary" data-i18n="submitother" onclick="restart()">Submit another</button>
