@@ -42,6 +42,7 @@
                         padding: 20px;
                         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
                         margin-bottom: 16px;
+                        text-align: center;
                 }
 
                 .header h1 {
@@ -257,18 +258,18 @@
 
                 <!-- Q1 -->
                 <section class="page active" id="q1">
-                        <h2 data-i18n="q1">🚑 How many times have you visited this hospital?</h2>
+                        <h2>🚑 <span data-i18n="q1"> many times have you visited this hospital?</span></h2>
                         <div class="options">
-                                <div class="option" data-i18n="q1o1" onclick="answerAndNext(1,'Once')"><span
-                                                class="emoji">1️⃣</span>Once
+                                <div class="option" onclick="answerAndNext(1,'Once')"><span
+                                                class="emoji">1️⃣</span><span data-i18n="q1o1">Once</span>
                                 </div>
-                                <div class="option" data-i18n="q1o2" onclick="answerAndNext(1,'Twice')"><span
-                                                class="emoji">2️⃣</span>Twice</div>
-                                <div class="option" data-i18n="q1o3" onclick="answerAndNext(1,'Many')"><span
-                                                class="emoji">🔁</span>Many
+                                <div class="option" onclick="answerAndNext(1,'Twice')"><span
+                                                class="emoji">2️⃣</span><span data-i18n="q1o2">Twice</span></div>
+                                <div class="option" onclick="answerAndNext(1,'Many')"><span
+                                                class="emoji">🔁</span><span data-i18n="q1o3">Many</span>
                                 </div>
-                                <div class="option" data-i18n="q1o4" onclick="answerAndNext(1,'Never')"><span
-                                                class="emoji">🆕</span>Never</div>
+                                <div class="option" onclick="answerAndNext(1,'Never')"><span
+                                                class="emoji">🆕</span><span data-i18n="q1o4">Never</span></div>
                         </div>
                 </section>
 
@@ -310,7 +311,8 @@
                         <h2 data-i18n="q4">📣 How did you hear about AKH?</h2>
                         <div class="options">
                                 <div class="option" data-i18n="q4o1"
-                                        onclick="answerAndNext(4,'Family/Friend/Previous Patient')"><span
+                                        onclick="answerAndNext(4,'Family/Friend/Previous Patient')"
+                                        ><span
                                                 class="emoji">👨‍👩‍👧‍👦</span>Family / Friend / Previous
                                         Patient</div>
                                 <div class="option" data-i18n="q4o2" onclick="answerAndNext(4,'CHW/Pastor referral')">
@@ -678,7 +680,7 @@
                                 q4o1: "Family / Friend / Previous Patient",
                                 q4o2: "Referral from CHW / Pastor",
                                 q4o3: "Referral from ASHA / Govt. Officer",
-                                q404: "Heard through a market camp",
+                                q4o4: "Heard through a market camp",
                                 q4o5: "Referral from another Hospital",
                                 q5: "How did you travel to the hospital?",
                                 q5o1: "Walked",
@@ -746,7 +748,7 @@
                                 q4o1: "ପରିବାର / ମିତ୍ର / ପୂର୍ବତନ ରୋଗୀ",
                                 q4o2: "CHW / ପାଷ୍ଟରଙ୍କ ସୁପାରିଶ",
                                 q4o3: "ASHA / ସରକାରୀ ଅଧିକାରୀଙ୍କ ସୁପାରିଶ",
-                                q404: "ବଜାର ଶିବିର ମାଧ୍ୟମରେ ଶୁଣିଥିଲେ",
+                                q4o4: "ବଜାର ଶିବିର ମାଧ୍ୟମରେ ଶୁଣିଥିଲେ",
                                 q4o5: "ଅନ୍ୟ ହସ୍ପିଟାଲରୁ ସୁପାରିଶ",
                                 q5: "ଆପଣ ହସ୍ପିଟାଲକୁ କିପରି ଆସିଲେ?",
                                 q5o1: "ପାଇଁ ହାଟି",
@@ -814,7 +816,7 @@
                                 q4o1: "परिवार / मित्र / पूर्व रोगी",
                                 q4o2: "CHW / पादरी की सिफारिश",
                                 q4o3: "आशा / सरकारी अधिकारी की सिफारिश",
-                                q404: "बाज़ार शिविर के माध्यम से सुना",
+                                q4o4: "बाज़ार शिविर के माध्यम से सुना",
                                 q4o5: "किसी अन्य अस्पताल से सिफारिश",
                                 q5: "आप अस्पताल कैसे आए?",
                                 q5o1: "पैदल",
@@ -996,7 +998,7 @@
                                 s.addEventListener("click", () => {
                                         // highlight stars immediately
                                         wrap.querySelectorAll(".star").forEach((st, idx) => st.classList.toggle("active", idx < i));
-                                        document.getElementById("starValue").textContent = "Selected: " + i;
+                                        // document.getElementById("starValue").textContent = "Selected: " + i;
 
                                         // record answer
                                         responses["Q" + qId] = i;
@@ -1005,7 +1007,7 @@
                                         setTimeout(() => {
                                                 // goNext();
                                                 answerAndNext(qId, i);
-                                        }, 1000); // 2500ms = 2.5 seconds
+                                        }, 500); // 2500ms = 2.5 seconds
                                 });
                                 wrap.appendChild(s);
                         }
