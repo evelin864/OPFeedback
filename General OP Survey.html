@@ -43,6 +43,7 @@
                         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
                         margin-bottom: 16px;
                         text-align: center;
+                        /* display: flex; */
                 }
 
                 .header h1 {
@@ -236,22 +237,31 @@
         </form>
         <div class="container">
                 <header class="header">
-                        <div class="language">
-                                <label for="langSelect" id="langLabel" data-i18n="langLabel">Language:</label>
-                                <select id="langSelect" class="lang" onchange="setLang(this.value)">
-                                        <option value="en" data-i18n="en">English</option>
-                                        <option value="or" data-i18n="or">ଓଡ଼ିଆ</option>
-                                        <option value="hi" data-i18n="hi">हिन्दी</option>
-                                </select>
-                        </div>
-                        <h1 data-i18n="hospital">Asha Kiran Hospital</h1>
-                        <p data-i18n="title">Out Patient Feedback Form</p>
-                        <!-- <div class="progress" aria-label="Progress">
+                        <div>
+                                <div class="language">
+                                        <label for="langSelect" id="langLabel" data-i18n="langLabel">Language:</label>
+                                        <select id="langSelect" class="lang" onchange="setLang(this.value)">
+                                                <option value="en" data-i18n="en">English</option>
+                                                <option value="or" data-i18n="or">ଓଡ଼ିଆ</option>
+                                                <option value="hi" data-i18n="hi">हिन्दी</option>
+                                                <option value="te" data-i18n="te">తెలుగు</option>
+                                        </select>
+                                </div>
+                                <div style="display: flex; width: 100%;">
+                                        <img src="logo.jpg" alt="Hospital Logo" class="logo">
+                                        <div>
+                                                <h1 data-i18n="hospital">Asha Kiran Hospital</h1>
+                                                <p data-i18n="title">Out Patient Feedback Form</p>
+                                        </div>
+                                </div>
+
+                                <!-- <div class="progress" aria-label="Progress">
                                 <div id="progressBar" class="progress-bar"></div>
                         </div> -->
-                        <div class="topbar">
-                                <div class="progress" aria-label="Progress">
-                                        <div id="progressBar" class="progress-bar"></div>
+                                <div class="topbar">
+                                        <div class="progress" aria-label="Progress">
+                                                <div id="progressBar" class="progress-bar"></div>
+                                        </div>
                                 </div>
                         </div>
                 </header>
@@ -265,8 +275,8 @@
                                 </div>
                                 <div class="option" onclick="answerAndNext(1,'Twice')"><span
                                                 class="emoji">2️⃣</span><span data-i18n="q1o2">Twice</span></div>
-                                <div class="option" onclick="answerAndNext(1,'Many')"><span
-                                                class="emoji">🔁</span><span data-i18n="q1o3">Many</span>
+                                <div class="option" onclick="answerAndNext(1,'Many')"><span class="emoji">🔁</span><span
+                                                data-i18n="q1o3">Many</span>
                                 </div>
                                 <div class="option" onclick="answerAndNext(1,'Never')"><span
                                                 class="emoji">🆕</span><span data-i18n="q1o4">Never</span></div>
@@ -276,14 +286,14 @@
                 <!-- Q2 -->
                 <section class="page" id="q2">
                         <h2>💊 <span data-i18n="q2">Did you have any medical treatment for this illness before
-                                visiting AKH?</span>
+                                        visiting AKH?</span>
                         </h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(2,'Yes')"><span
-                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(2,'Yes')"><span class="emoji">✅</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(2,'No')"><span
-                                                class="emoji">❌</span><span data-i18n="no">No</span></div>
+                                <div class="option" onclick="answerAndNext(2,'No')"><span class="emoji">❌</span><span
+                                                data-i18n="no">No</span></div>
                         </div>
                 </section>
 
@@ -292,17 +302,19 @@
                         <h2>🏥 <span data-i18n="q3">If yes, where did you receive treatment?</span></h2>
                         <div class="options">
                                 <div class="option" onclick="answerAndNext(3,'Govt. Hospital')"><span
-                                                class="emoji">🏛️</span><span data-i18n="q3o1">Govt. Hospital</span></div>
+                                                class="emoji">🏛️</span><span data-i18n="q3o1">Govt. Hospital</span>
+                                </div>
                                 <div class="option" onclick="answerAndNext(3,'Private Hospital')"><span
-                                                class="emoji">🏩</span><span data-i18n="q3o2">Private Hospital</span></div>
-                                <div class="option" onclick="setOtherText(3,'Other')"><span
-                                                class="emoji">✍️</span><span data-i18n="qother">Other
-                                        (specify)</span></div>
+                                                class="emoji">🏩</span><span data-i18n="q3o2">Private Hospital</span>
+                                </div>
+                                <div class="option" onclick="setOtherText(3,'Other')"><span class="emoji">✍️</span><span
+                                                data-i18n="qother">Other
+                                                (specify)</span></div>
                         </div>
                         <div class="actions" id="other3" style="display:none;">
                                 <input id="other3Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary"
-                                        onclick="submitOther(3,'Other')"><span data-i18n="continue">Continue</span></button>
+                                <button class="btn btn-primary" onclick="submitOther(3,'Other')"><span
+                                                data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
@@ -310,23 +322,24 @@
                 <section class="page" id="q4">
                         <h2>📣 <span data-i18n="q4">How did you hear about AKH?</span></h2>
                         <div class="options">
-                                <div class="option"
-                                        onclick="answerAndNext(4,'Family/Friend/Previous Patient')"
-                                        ><span
-                                                class="emoji">👨‍👩‍👧‍👦</span><span data-i18n="q4o1">Family / Friend / Previous
-                                        Patient</span></div>
+                                <div class="option" onclick="answerAndNext(4,'Family/Friend/Previous Patient')"><span
+                                                class="emoji">👨‍👩‍👧‍👦</span><span data-i18n="q4o1">Family / Friend /
+                                                Previous
+                                                Patient</span></div>
                                 <div class="option" onclick="answerAndNext(4,'CHW/Pastor referral')">
-                                        <span class="emoji">⛪</span><span data-i18n="q4o2">Referral from CHW / Pastor</span>
+                                        <span class="emoji">⛪</span><span data-i18n="q4o2">Referral from CHW /
+                                                Pastor</span>
                                 </div>
-                                <div class="option"
-                                        onclick="answerAndNext(4,'ASHA/Govt Officer referral')"><span
-                                                class="emoji">🏢</span><span data-i18n="q4o3">Referral from ASHA / Govt. Officer</span></div>
+                                <div class="option" onclick="answerAndNext(4,'ASHA/Govt Officer referral')"><span
+                                                class="emoji">🏢</span><span data-i18n="q4o3">Referral from ASHA / Govt.
+                                                Officer</span></div>
                                 <div class="option" onclick="answerAndNext(4,'Market camp')">
-                                        <span class="emoji">🛍️</span><span data-i18n="q4o4">Heard through a market camp</span>
+                                        <span class="emoji">🛍️</span><span data-i18n="q4o4">Heard through a market
+                                                camp</span>
                                 </div>
-                                <div class="option"
-                                        onclick="answerAndNext(4,'Another Hospital referral')"><span
-                                                class="emoji">🏥</span><span data-i18n="q4o5">Referral from another Hospital</span></div>
+                                <div class="option" onclick="answerAndNext(4,'Another Hospital referral')"><span
+                                                class="emoji">🏥</span><span data-i18n="q4o5">Referral from another
+                                                Hospital</span></div>
                         </div>
                 </section>
 
@@ -337,17 +350,19 @@
                                 <div class="option" onclick="answerAndNext(5,'Walked')"><span
                                                 class="emoji">🚶</span><span data-i18n="q5o1">Walked</span></div>
                                 <div class="option" onclick="answerAndNext(5,'Public Vehicle')"><span
-                                                class="emoji">🚌</span><span data-i18n="q5o2">Public Vehicle</span></div>
+                                                class="emoji">🚌</span><span data-i18n="q5o2">Public Vehicle</span>
+                                </div>
                                 <div class="option" onclick="answerAndNext(5,'Private Vehicle')"><span
-                                                class="emoji">🚗</span><span data-i18n="q5o3">Private Vehicle</span></div>
-                                <div class="option" onclick="setOtherText(5,'Other')"><span
-                                                class="emoji">✍️</span><span data-i18n="qother">Other
-                                        (specify)</span></div>
+                                                class="emoji">🚗</span><span data-i18n="q5o3">Private Vehicle</span>
+                                </div>
+                                <div class="option" onclick="setOtherText(5,'Other')"><span class="emoji">✍️</span><span
+                                                data-i18n="qother">Other
+                                                (specify)</span></div>
                         </div>
                         <div class="actions" id="other5" style="display:none;">
                                 <input id="other5Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary"
-                                        onclick="submitOther(5,'Other')"><span data-i18n="continue">Continue</span></button>
+                                <button class="btn btn-primary" onclick="submitOther(5,'Other')"><span
+                                                data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
@@ -355,23 +370,24 @@
                 <section class="page" id="q6">
                         <h2>🅿️ <span data-i18n="q6">If private vehicle, was parking a problem?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(6,'Yes')"><span
-                                                class="emoji">⚠️</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(6,'Yes')"><span class="emoji">⚠️</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(6,'No')"><span
-                                                class="emoji">✅</span><span data-i18n="no">No</span></div>
+                                <div class="option" onclick="answerAndNext(6,'No')"><span class="emoji">✅</span><span
+                                                data-i18n="no">No</span></div>
                         </div>
                 </section>
 
                 <!-- Q7 -->
                 <section class="page" id="q7">
-                        <h2>🧭 <span data-i18n="q7">Did you have difficulty finding your way around the hospital?</span></h2>
+                        <h2>🧭 <span data-i18n="q7">Did you have difficulty finding your way around the hospital?</span>
+                        </h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(7,'Yes')"><span
-                                                class="emoji">🧩</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(7,'Yes')"><span class="emoji">🧩</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(7,'No')"><span
-                                                class="emoji">🗺️</span><span data-i18n="no">No</span>
+                                <div class="option" onclick="answerAndNext(7,'No')"><span class="emoji">🗺️</span><span
+                                                data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
@@ -380,11 +396,11 @@
                 <section class="page" id="q8">
                         <h2>🧼 <span data-i18n="q8">Was the hospital (including toilets) clean?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(8,'Yes')"><span
-                                                class="emoji">✨</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(8,'Yes')"><span class="emoji">✨</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(8,'No')"><span
-                                                class="emoji">🚫</span><span data-i18n="no">No</span>
+                                <div class="option" onclick="answerAndNext(8,'No')"><span class="emoji">🚫</span><span
+                                                data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
@@ -397,14 +413,14 @@
                                                 class="emoji">🚻</span><span data-i18n="q9o1">Toilets</span></div>
                                 <div class="option" onclick="answerAndNext(9,'Wards')"><span
                                                 class="emoji">🛏️</span><span data-i18n="q9o2">Wards</span></div>
-                                <div class="option" onclick="setOtherText(9,'Other')"><span
-                                                class="emoji">✍️</span><span data-i18n="qother">Other
-                                        (specify)</span></div>
+                                <div class="option" onclick="setOtherText(9,'Other')"><span class="emoji">✍️</span><span
+                                                data-i18n="qother">Other
+                                                (specify)</span></div>
                         </div>
                         <div class="actions" id="other9" style="display:none;">
                                 <input id="other9Input" class="input" type="text" placeholder="">
-                                <button class="btn btn-primary"
-                                        onclick="submitOther(9,'Other')"><span data-i18n="continue">Continue</span></button>
+                                <button class="btn btn-primary" onclick="submitOther(9,'Other')"><span
+                                                data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
@@ -460,8 +476,8 @@
                         <h2>💬 <span data-i18n="q12">How?</span></h2>
                         <input id="q12Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(12,'q12Input')"><span data-i18n="next">Next</span></button>
+                                <button class="btn btn-primary" onclick="submitText(12,'q12Input')"><span
+                                                data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
@@ -483,11 +499,11 @@
                 <section class="page" id="q14">
                         <h2>🔄 <span data-i18n="q14">Would you visit this hospital again?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(14,'Yes')"><span
-                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(14,'Yes')"><span class="emoji">✅</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(14,'No')"><span
-                                                class="emoji">❌</span><span data-i18n="no">No</span>
+                                <div class="option" onclick="answerAndNext(14,'No')"><span class="emoji">❌</span><span
+                                                data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
@@ -497,8 +513,8 @@
                         <h2>📝 <span data-i18n="q15">Why?</span></h2>
                         <input id="q15Input" class="input" type="text" placeholder="Your reason">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(15,'q15Input')"><span data-i18n="next">Next</span></button>
+                                <button class="btn btn-primary" onclick="submitText(15,'q15Input')"><span
+                                                data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
@@ -507,13 +523,13 @@
                         <h2>🎂 <span data-i18n="q16">Your age?</span></h2>
                         <div class="options">
                                 <div class="option" onclick="answerAndNext(16,'15-30')"><span data-i18n="q16o1">15–30
-                                        yrs</span>
+                                                yrs</span>
                                 </div>
                                 <div class="option" onclick="answerAndNext(16,'30-45')"><span data-i18n="q16o2">30–45
-                                        yrs</span>
+                                                yrs</span>
                                 </div>
                                 <div class="option" onclick="answerAndNext(16,'45-60')"><span data-i18n="q16o3">45–60
-                                        yrs</span>
+                                                yrs</span>
                                 </div>
                                 <div class="option" onclick="answerAndNext(16,'Above 60')">
                                         <span data-i18n="q16o4">Above 60</span>
@@ -525,15 +541,18 @@
                 <section class="page" id="q17">
                         <h2>🎓 <span data-i18n="q17">Your education status?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(17,'No Schooling')"><span data-i18n="q17o1">No
-                                        Schooling</span></div>
+                                <div class="option" onclick="answerAndNext(17,'No Schooling')"><span
+                                                data-i18n="q17o1">No
+                                                Schooling</span></div>
                                 <div class="option" onclick="answerAndNext(17,'1st-5th Std')">
                                         <span data-i18n="q17o2">1st–5th
-                                        Std</span></div>
+                                                Std</span>
+                                </div>
                                 <div class="option" onclick="answerAndNext(17,'6th-10th Std')">
-                                        <span data-i18n="q17o3">6th–10th Std</span></div>
+                                        <span data-i18n="q17o3">6th–10th Std</span>
+                                </div>
                                 <div class="option" onclick="answerAndNext(17,'+2 Passed')"><span data-i18n="q17o4">+2
-                                        Passed</span>
+                                                Passed</span>
                                 </div>
                                 <div class="option" onclick="answerAndNext(17,'College graduate')">
                                         <span data-i18n="q17o5">College graduate</span>
@@ -546,20 +565,23 @@
                         <h2>💼 <span data-i18n="q18">Your job?</span></h2>
                         <div class="options">
                                 <div class="option" onclick="answerAndNext(18,'Farmer')">
-                                        <span data-i18n="q18o1">Farmer</span></div>
-                                <div class="option" onclick="answerAndNext(18,'Govt. Employee')"><span data-i18n="q18o2">Govt.
-                                        Employee</span></div>
+                                        <span data-i18n="q18o1">Farmer</span>
+                                </div>
+                                <div class="option" onclick="answerAndNext(18,'Govt. Employee')"><span
+                                                data-i18n="q18o2">Govt.
+                                                Employee</span></div>
                                 <div class="option" onclick="answerAndNext(18,'Salaried Employee')">
                                         <span data-i18n="q18o3">Salaried Employee</span>
                                 </div>
                                 <div class="option" onclick="setOtherText(18,'Other')"><span
-                                                class="emoji">✍️</span><span data-i18n="qother">Other (specify)</span></div>
+                                                class="emoji">✍️</span><span data-i18n="qother">Other (specify)</span>
+                                </div>
                         </div>
                         <div class="actions" id="other18" style="display:none;">
                                 <input id="other18Input" class="input" type="text"
                                         placeholder="Type other and continue">
-                                <button class="btn btn-primary"
-                                        onclick="submitOther(18,'Other')"><span data-i18n="continue">Continue</span></button>
+                                <button class="btn btn-primary" onclick="submitOther(18,'Other')"><span
+                                                data-i18n="continue">Continue</span></button>
                         </div>
                 </section>
 
@@ -568,8 +590,8 @@
                         <h2>🛠️ <span data-i18n="q19">Suggestion to improve services</span></h2>
                         <input id="q19Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(19,'q19Input')"><span data-i18n="next">Next</span></button>
+                                <button class="btn btn-primary" onclick="submitText(19,'q19Input')"><span
+                                                data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
@@ -578,8 +600,8 @@
                         <h2>🏗️ <span data-i18n="q20">Suggestion to improve facilities</span></h2>
                         <input id="q20Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(20,'q20Input')"><span data-i18n="next">Next</span></button>
+                                <button class="btn btn-primary" onclick="submitText(20,'q20Input')"><span
+                                                data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
@@ -587,11 +609,11 @@
                 <section class="page" id="q21">
                         <h2>🟩 <span data-i18n="q21">Have you heard anything positive about AKH?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(21,'Yes')"><span
-                                                class="emoji">✅</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(21,'Yes')"><span class="emoji">✅</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(21,'No')"><span
-                                                class="emoji">❌</span><span data-i18n="no">No</span>
+                                <div class="option" onclick="answerAndNext(21,'No')"><span class="emoji">❌</span><span
+                                                data-i18n="no">No</span>
                                 </div>
                         </div>
                 </section>
@@ -601,8 +623,8 @@
                         <h2>✨ <span data-i18n="q22">What positive things have you heard?</span></h2>
                         <input id="q22Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(22,'q22Input')"><span data-i18n="next">Next</span></button>
+                                <button class="btn btn-primary" onclick="submitText(22,'q22Input')"><span
+                                                data-i18n="next">Next</span></button>
                         </div>
                 </section>
 
@@ -610,13 +632,17 @@
                 <section class="page" id="q23">
                         <h2>🟥 <span data-i18n="q23">Have you heard anything negative about AKH?</span></h2>
                         <div class="options">
-                                <div class="option" onclick="answerAndNext(23,'Yes')"><span
-                                                class="emoji">⚠️</span><span data-i18n="yes">Yes</span>
+                                <div class="option" onclick="answerAndNext(23,'Yes')"><span class="emoji">⚠️</span><span
+                                                data-i18n="yes">Yes</span>
                                 </div>
-                                <div class="option" onclick="answerAndNext(23,'No')"><span
-                                                class="emoji">✅</span><span data-i18n="no">No</span>
+                                <div class="option" onclick="answerAndNext(23,'No')"><span class="emoji">✅</span><span
+                                                data-i18n="no">No</span>
                                 </div>
                         </div>
+                        <!-- <div class="actions1" style="display: none;">
+                                <button class="btn btn-primary" onclick="showPage('qFinal')"><span
+                                                data-i18n="finish">Finish</span></button>
+                        </div> -->
                 </section>
 
                 <!-- Q24 (open text, conditional if Q23 Yes) -->
@@ -624,15 +650,16 @@
                         <h2>🗣️ <span data-i18n="q24">What negative things have you heard?</span></h2>
                         <input id="q24Input" class="input" type="text" placeholder="">
                         <div class="actions">
-                                <button class="btn btn-primary"
-                                        onclick="submitText(24,'q24Input')"><span data-i18n="finish">Finish</span></button>
+                                <button class="btn btn-primary" onclick="submitText(24,'q24Input')"><span
+                                                data-i18n="finish">Finish</span></button>
                         </div>
                 </section>
 
                 <!-- Final -->
                 <section class="page" id="qFinal">
                         <h2>🎉 <span data-i18n="thankyou">Thank you!</span></h2>
-                        <p><span data-i18n="recorded">Your feedback has been recorded. We value your experience at AKH</span>
+                        <p><span data-i18n="recorded">Your feedback has been recorded. We value your experience at
+                                        AKH</span>
                         </p>
                         <!-- <div class="actions">
                                 <button class="btn btn-secondary" data-i18n="submitother" onclick="restart()">Submit another</button>
@@ -656,6 +683,7 @@
                         "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19", "q20", "q21", "q22", "q23", "q24", "qFinal"
                 ];
                 let currentIndex = 0;
+                let showFinishButton = false;
 
                 const translations = {
                         en: {
@@ -861,6 +889,74 @@
                                 recorded: "आपकी प्रतिक्रिया दर्ज कर ली गई है। हम AKH में आपके अनुभव को महत्व देते हैं।",
                                 // submitother: "",
                                 footer: "देखभाल के साथ बनाया गया — AKH"
+                        },
+                        te: {
+                                hospital: "ఆశా కిరణ ఆసుపత్రి",
+                                title: "బయట రోగి అభిప్రాయ ఫారం",
+                                langLabel: "భాష:",
+                                q1: "మీరు ఈ ఆసుపత్రిని ఎన్ని సార్లు సందర్శించారు?",
+                                q1o1: "ఒకసారి",
+                                q1o2: "రెండుసార్లు",
+                                q1o3: "అనేకసార్లు",
+                                q1o4: "ఎప్పుడూ కాదు",
+                                q2: "మీరు AKH కి వెళ్లే ముందు ఈ వ్యాధికి ఏదైనా వైద్య చికిత్స పొందారా?",
+                                yes: "అవును",
+                                no: "లేదు",
+                                q3: "అవును అయితే, మీరు ఎక్కడ చికిత్స పొందారు?",
+                                q3o1: "ప్రభుత్వ ఆసుపత్రి",
+                                q3o2: "ప్రైవేట్ ఆసుపత్రి",
+                                qother: "ఇతర (వివరించండి)",
+                                continue: "కొనసాగించండి",
+                                next: "తర్వాత",
+                                q4: "మీరు AKH గురించి ఎలా తెలుసుకున్నారు?",
+                                q4o1: "కుటుంబం / స్నేహితుడు / గత రోగి",
+                                q4o2: "సముదాయ ఆరోగ్య కార్యకర్త / పాస్టర్ ద్వారా సూచన",
+                                q4o3: "ఆశా కార్యకర్త / ప్రభుత్వ అధికారి ద్వారా సూచన",
+                                q4o4: "మార్కెట్ శిబిరం ద్వారా తెలిసింది",
+                                q4o5: "మరొక ఆసుపత్రి నుండి సూచన",
+                                q5: "మీరు ఆసుపత్రికి ఎలా ప్రయాణించారు?",
+                                q5o1: "- నడిచి వచ్చారు",
+                                q5o2: "- ప్రజా వాహనం",
+                                q5o3: "- వ్యక్తిగత వాహనం",
+                                q6: "మీరు వ్యక్తిగత వాహనంలో వచ్చి ఉంటే, పార్కింగ్ సమస్యగా అనిపించిందా?",
+                                q7: "మీకు ఆసుపత్రిలో దారి కనుగొనడంలో కష్టంగా అనిపించిందా?",
+                                q8: "ఆసుపత్రి (శౌచాలయాలు సహా) శుభ్రంగా ఉన్నాయా?",
+                                q9: "లేదంటే, ఏ భాగం?",
+                                q9o1: "శౌచాలయాలు",
+                                q9o2: "వార్డులు",
+                                q11: "చికిత్స ఖర్చు ఊహించినదా లేదా ఊహించని దా?",
+                                q11o1: "ఊహించినది",
+                                q11o2: "ఊహించనిది",
+                                q12: "ఎలా?",
+                                q13: "మీ మొత్తం అనుభవాన్ని మీరు ఎలా రేట్ చేస్తారు?",
+                                q14: "మీరు ఈ ఆసుపత్రిని మళ్లీ సందర్శిస్తారా?",
+                                q15: "ఎందుకు?",
+                                q16: "మీ వయసు?",
+                                q16o1: "15–30 సంవత్సరాలు",
+                                q16o2: "30–45 సంవత్సరాలు",
+                                q16o3: "45–60 సంవత్సరాలు",
+                                q16o4: "60 పైబడిన వారు",
+                                q17: "మీ విద్యా స్థాయి?",
+                                q17o1: "పాఠశాల చదువు లేదు",
+                                q17o2: "1వ–5వ తరగతి",
+                                q17o3: "6వ–10వ తరగతి",
+                                q17o4: "+2 ఉత్తీర్ణులు",
+                                q17o5: "కళాశాల పట్టభద్రులు",
+                                q18: "మీ ఉద్యోగం?",
+                                q18o1: "రైతు ",
+                                q16o2: "ప్రభుత్వ ఉద్యోగి",
+                                q18o3: "వేతన ఉద్యోగి",
+                                q19: "సేవలను మెరుగుపరచడానికి సూచనలు",
+                                q20: "సౌకర్యాలను మెరుగుపరచడానికి సూచనలు",
+                                q21: "మీరు ఆశా కిరణ ఆసుపత్రి గురించి ఏదైనా సానుకూల విషయాలు విన్నారా?",
+                                q22: "మీరు ఏ సానుకూల విషయాలు విన్నారు?",
+                                q23: "మీరు ఆశా కిరణ ఆసుపత్రి గురించి ఏదైనా ప్రతికూల విషయాలు విన్నారా?",
+                                q24: "మీరు ఏ ప్రతికూల విషయాలు విన్నారు?",
+                                finish: "ముగించు",
+                                thankyou: "ధన్యవాదాలు!",
+                                recorded: "మీ అభిప్రాయం నమోదు చేయబడింది. మేము AKH లో మీ అనుభవాన్ని విలువైనదిగా భావిస్తున్నాము.",
+                                // submitother: "మరొకటి సమర్పించండి",
+                                footer: "శ్రద్ధతో తయారు చేయబడింది — AKH"
                         }
                 };
 
@@ -908,6 +1004,7 @@
                                 // Skip Q24 if Q23 != Yes
                                 if (pid === "q24" && responses["Q23"] !== "Yes") continue;
                                 //call the collect responses function
+                                // if (pid === "q24" && responses["Q23"] !== "No") submitSurvey();
                                 if (pid === "qFinal") submitSurvey();
 
                                 nextId = pid;
@@ -925,6 +1022,14 @@
 
                 function answerAndNext(qNum, answer) {
                         responses["Q" + qNum] = answer;
+                        // const actions = document.getElementById("actions1");
+                        // if(actions)
+                        if (qNum == 23 && answer === "No") {
+                                // actions.style.display = "block";
+                                submitSurvey();
+                        } else {
+                                // actions.style.display = "none";
+                        }
                         nextByLogic();
                 }
 
@@ -1079,6 +1184,8 @@
                         //         .catch(err => alert("Error submitting: " + err));
                         // document.querySelector("#dataField").value = - JSON.stringify(responses);
                         // document.querySelector("#opForm").submit();
+                        const timestamp = new Date().toISOString();
+                        responses["time"] = timestamp;
                         const url = "https://script.google.com/macros/s/AKfycbyb-_eTDu7j3HBfFJhRl-bmZubfOFKuRuZNk6mvau_cGI2sUj2Dp4DlyfEzAx_AJ1zhuw/exec"
                                 + "?data=" + encodeURIComponent(JSON.stringify(responses));
 
