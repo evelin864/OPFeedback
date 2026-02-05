@@ -196,17 +196,6 @@
                         margin: 16px 0 8px
                 }
 
-                #admin {
-                        display: none;
-                        text-align: center;
-                        margin: 16px 0
-                }
-
-                #downloadBtn {
-                        background: var(--primary);
-                        color: #fff
-                }
-
                 .stars {
                         display: flex;
                         gap: 6px;
@@ -223,7 +212,6 @@
                         color: #f59e0b;
                 }
 
-                /* gold */
                 .star:hover {
                         transform: scale(1.1);
                 }
@@ -252,12 +240,6 @@
                                 <!-- <div> -->
                                 <h1 data-i18n="hospital">Asha Kiran Hospital</h1>
                                 <p data-i18n="title">Out Patient Feedback Form</p>
-                                <!-- </div> -->
-                                <!-- </div> -->
-
-                                <!-- <div class="progress" aria-label="Progress">
-                                <div id="progressBar" class="progress-bar"></div>
-                        </div> -->
                                 <div class="topbar">
                                         <div class="progress" aria-label="Progress">
                                                 <div id="progressBar" class="progress-bar"></div>
@@ -424,40 +406,6 @@
                         </div>
                 </section>
 
-                <!-- Q10a (streamlined overall to keep fast) -->
-                <!-- <section class="page" id="q10a">
-                        <h2>🙂 Politeness of staff — overall</h2>
-                        <div class="options">
-                                <div class="option" onclick="answerAndNext('10a','Good')">Good</div>
-                                <div class="option" onclick="answerAndNext('10a','Average')">Average</div>
-                                <div class="option" onclick="answerAndNext('10a','Bad')">Bad</div>
-                                <div class="option" onclick="answerAndNext('10a','Very Bad')">Very Bad</div>
-                        </div>
-                        <p class="hint">Compressed from the table to save time.</p>
-                </section> -->
-
-                <!-- Q10b -->
-                <!-- <section class="page" id="q10b">
-                        <h2>🗣️ Explanations — overall</h2>
-                        <div class="options">
-                                <div class="option" onclick="answerAndNext('10b','Good')">Good</div>
-                                <div class="option" onclick="answerAndNext('10b','Average')">Average</div>
-                                <div class="option" onclick="answerAndNext('10b','Bad')">Bad</div>
-                                <div class="option" onclick="answerAndNext('10b','Very Bad')">Very Bad</div>
-                        </div>
-                </section> -->
-
-                <!-- Q10c -->
-                <!-- <section class="page" id="q10c">
-                        <h2>⏱️ Waiting time — overall</h2>
-                        <div class="options">
-                                <div class="option" onclick="answerAndNext('10c','Good')">Good</div>
-                                <div class="option" onclick="answerAndNext('10c','Average')">Average</div>
-                                <div class="option" onclick="answerAndNext('10c','Bad')">Bad</div>
-                                <div class="option" onclick="answerAndNext('10c','Very Bad')">Very Bad</div>
-                        </div>
-                </section> -->
-
                 <!-- Q11 -->
                 <section class="page" id="q11">
                         <h2>💰 <span data-i18n="q11">Was the cost of treatment expected or unexpected?</span></h2>
@@ -484,13 +432,6 @@
                 <!-- Q13 (stars) -->
                 <section class="page" id="q13">
                         <h2>⭐ <span data-i18n="q13">How would you rate your overall experience?</span></h2>
-                        <!-- <div class="options">
-                                <div class="option" onclick="answerAndNext(13,'1')">★☆☆☆☆</div>
-                                <div class="option" onclick="answerAndNext(13,'2')">★★☆☆☆</div>
-                                <div class="option" onclick="answerAndNext(13,'3')">★★★☆☆</div>
-                                <div class="option" onclick="answerAndNext(13,'4')">★★★★☆</div>
-                                <div class="option" onclick="answerAndNext(13,'5')">★★★★★</div>
-                        </div> -->
                         <div id="starRating" class="stars"></div>
                         <p id="starValue"></p>
                 </section>
@@ -639,10 +580,6 @@
                                                 data-i18n="no">No</span>
                                 </div>
                         </div>
-                        <!-- <div class="actions1" style="display: none;">
-                                <button class="btn btn-primary" onclick="showPage('qFinal')"><span
-                                                data-i18n="finish">Finish</span></button>
-                        </div> -->
                 </section>
 
                 <!-- Q24 (open text, conditional if Q23 Yes) -->
@@ -661,15 +598,7 @@
                         <p><span data-i18n="recorded">Your feedback has been recorded. We value your experience at
                                         AKH</span>
                         </p>
-                        <!-- <div class="actions">
-                                <button class="btn btn-secondary" data-i18n="submitother" onclick="restart()">Submit another</button>
-                        </div> -->
                 </section>
-
-                <!-- Admin-only download -->
-                <!-- <div id="admin">
-      <button class="btn" id="downloadBtn" onclick="downloadAll()">Download all responses</button>
-    </div> -->
 
                 <p class="footer" data-i18n="footer">Made with care — AKH</p>
         </div>
@@ -983,7 +912,7 @@
 
                 function updateProgress() {
                         // Count only pages that will be asked based on conditional logic progress
-                        const progress = Math.round(((currentIndex) / (pages.length)) * 100);
+                        const progress = Math.round(((currentIndex) / (pages.length-1)) * 100);
                         document.getElementById("progressBar").style.width = progress + "%";
                 }
 
@@ -1074,22 +1003,6 @@
                         showPage("q1");
                 }
 
-                function downloadAll() {
-                        const all = localStorage.getItem(submissionsKey) || "[]";
-                        const blob = new Blob([all], { type: "application/json" });
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement("a");
-                        a.href = url; a.download = "akh-op-feedback-responses.json";
-                        document.body.appendChild(a); a.click(); document.body.removeChild(a);
-                        URL.revokeObjectURL(url);
-                }
-
-                // Admin visibility via URL
-                const params = new URLSearchParams(window.location.search);
-                if (params.get("admin") === "true") {
-                        document.getElementById("admin").style.display = "block";
-                }
-
                 // Initialize first page
                 showPage("q1");
 
@@ -1103,16 +1016,13 @@
                                 s.addEventListener("click", () => {
                                         // highlight stars immediately
                                         wrap.querySelectorAll(".star").forEach((st, idx) => st.classList.toggle("active", idx < i));
-                                        // document.getElementById("starValue").textContent = "Selected: " + i;
 
                                         // record answer
                                         responses["Q" + qId] = i;
 
-                                        // wait 2–3 seconds, then move to next page
                                         setTimeout(() => {
-                                                // goNext();
                                                 answerAndNext(qId, i);
-                                        }, 500); // 2500ms = 2.5 seconds
+                                        }, 500); 
                                 });
                                 wrap.appendChild(s);
                         }
@@ -1120,73 +1030,10 @@
 
                 // build stars for Q13
                 buildStars(13);
-                // function submitSurvey() {
-
-                //         document.getElementById("surveyForm").addEventListener("submit", function (e) {
-                //                 e.preventDefault();
-
-                //                 // Collect values by ID
-                //         //         "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", //"q10a", "q10b", "q10c",
-                //         // "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19", "q20", "q21", "q22", "q23", "q24"
-                //                 const data = {
-                //                         q1: document.getElementById("q1").value,
-                //                         q2: document.getElementById("q2").value,
-                //                         q3: document.getElementById("q3").value,
-                //                         q4: document.getElementById("q4").value,
-                //                         q5: document.getElementById("q5").value,
-                //                         q6: document.getElementById("q6").value,
-                //                         q7: document.getElementById("q7").value,
-                //                         q8: document.getElementById("q8").value,
-                //                         q9: document.getElementById("q9").value,
-                //                         q11: document.getElementById("q11").value,
-                //                         q12: document.getElementById("q12").value,
-                //                         q13: document.getElementById("q13").value,
-                //                         q14: document.getElementById("q14").value,
-                //                         q15: document.getElementById("q15").value,
-                //                         q16: document.getElementById("q16").value,
-                //                         q17: document.getElementById("q17").value,
-                //                         q18: document.getElementById("q18").value,
-                //                         q19: document.getElementById("q19").value,
-                //                         q20: document.getElementById("q20").value,
-                //                         q21: document.getElementById("q21").value,
-                //                         q22: document.getElementById("q22").value,
-                //                         q23: document.getElementById("q23").value,
-                //                         q24: document.getElementById("q24").value,
-                //                 };
-
-                //                 // Send to Google Apps Script Web App
-                //                 fetch("https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec", {
-                //                         method: "POST",
-                //                         body: JSON.stringify(data)
-                //                 })
-                //                         .then(res => {
-                //                                 document.getElementById("surveyForm").style.display = "none";
-                //                                 document.getElementById("thankyou").style.display = "block";
-                //                         })
-                //                         .catch(err => alert("Error submitting response: " + err));
-                //         });
-                // }
 
                 function submitSurvey() {
-                        // fetch("https://script.google.com/macros/s/AKfycbzayBPkNSLsyXobbqfx1zMeMHc0lqGEEFY1QJoY6L5l-4EY08rTe8nyzMxajZBX18dfvg/exec", {
-                        //         method: "POST",
-                        //         body: new URLSearchParams({
-                        //                 data:JSON.stringify(responses)
-                        //         })
-                        //         //body: JSON.stringify(responses),
-                        //         //headers: { "Content-Type": "application/json" }
-                        // })
-                        //         .then(res => res.text())
-                        //         .then(text => {
-                        //                 console.log("Server response:", text);
-                        //                 showPage("qFinal");
-                        //         })
-                        //         .catch(err => alert("Error submitting: " + err));
-                        // document.querySelector("#dataField").value = - JSON.stringify(responses);
-                        // document.querySelector("#opForm").submit();
-                        const timestamp = new Date().toISOString();
-                        responses["time"] = timestamp;
-                        const url = "https://script.google.com/macros/s/AKfycbweNzyOUNV-V9sY37xScrVPFqI5_xY4IRM0fk5HdERdBLWjtMECQXZu0a-nTK_Yzc9uhA/exec"
+                        responses["qFinal"] = "OP";
+                        const url = "https://script.google.com/macros/s/AKfycbwdAO-5xQiw5HqXm4m1a-oQ0LFNH64r6sfjWH4_cmF8dZbgL-Toltt18YCQGpaUSKCO2A/exec"
                                 + "?data=" + encodeURIComponent(JSON.stringify(responses));
 
                         const img = new Image();
