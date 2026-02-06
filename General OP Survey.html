@@ -215,6 +215,31 @@
                 .star:hover {
                         transform: scale(1.1);
                 }
+
+                .hospitalTitleSection {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 15px;
+                        padding: 10px;
+                }
+
+                .logoSection {
+                        flex-shrink: 0;
+                }
+
+                @media (max-width: 480px) {
+                        .logoSection {
+                                display: none;
+                        }
+
+                        .hospitalTitleSection {
+                                background-image: url("Images/Logo.jpg");
+                                background-repeat: no-repeat;
+                                background-position: left center;
+                                background-size: 50px;
+                        }
+                }
         </style>
 </head>
 
@@ -237,9 +262,16 @@
                                 </div>
                                 <!-- <div style="display: flex; width: 100%;">
                                         <img src="https://evelin864.github.io/OPFeedback/logo.jpg" alt="Hospital Logo" class="logo"> -->
-                                <!-- <div> -->
-                                <h1 data-i18n="hospital">Asha Kiran Hospital</h1>
-                                <p data-i18n="title">Out Patient Feedback Form</p>
+                                <!-- </div> -->
+                                <div class="hospitalTitleSection">
+                                        <div class="logoSection">
+                                                <img src="Images/Logo.jpg" alt="Hospital Logo" class="logo">
+                                        </div>
+                                        <div>
+                                                <h1 data-i18n="hospital">Asha Kiran Hospital</h1>
+                                                <p data-i18n="title">Out Patient Feedback Form</p>
+                                        </div>
+                                </div>
                                 <div class="topbar">
                                         <div class="progress" aria-label="Progress">
                                                 <div id="progressBar" class="progress-bar"></div>
@@ -912,7 +944,7 @@
 
                 function updateProgress() {
                         // Count only pages that will be asked based on conditional logic progress
-                        const progress = Math.round(((currentIndex) / (pages.length-1)) * 100);
+                        const progress = Math.round(((currentIndex) / (pages.length - 1)) * 100);
                         document.getElementById("progressBar").style.width = progress + "%";
                 }
 
@@ -1022,7 +1054,7 @@
 
                                         setTimeout(() => {
                                                 answerAndNext(qId, i);
-                                        }, 500); 
+                                        }, 500);
                                 });
                                 wrap.appendChild(s);
                         }
